@@ -16,6 +16,8 @@ A lightweight, modular desktop multitool built with **Tauri (Rust + React/TypeSc
   - **Custom UI / Script Mode:** Write standalone JavaScript/Canvas interfaces with full access to `window.OmniTool` SDK (`invoke`, `exec`, `storage`, `ui.toast`).
 - **Auto-Updater:** Built-in update checker integrated with GitHub Releases.
 
+<img width="978" height="642" alt="image" src="https://github.com/user-attachments/assets/d1ff3c51-22c4-44c9-a8a6-ef89189d20d1" /> <img width="968" height="645" alt="image" src="https://github.com/user-attachments/assets/2097e9a5-6fcf-45df-b7eb-38a904d79aa6" /> <img width="972" height="642" alt="image" src="https://github.com/user-attachments/assets/9d9ca2c3-4f25-4f9c-8444-f9985e0b180e" /> <img width="969" height="645" alt="image" src="https://github.com/user-attachments/assets/267ae0b7-a8f2-4bf5-b511-4f02455f5700" />
+
 ## Installation
 
 1. Go to the [Releases](https://github.com/shnapi00/OmniTool/releases) page.
