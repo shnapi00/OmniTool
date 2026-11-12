@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg-base: #09090b;
+    --bg-surface: #0f0f12;
+    --bg-card: #141418;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent: #10b981;
+    --accent-hover: #059669;
+    --accent-text: #34d399;
+    --accent-bg: rgba(16, 185, 129, 0.1);
+    --accent-border: rgba(16, 185, 129, 0.25);
+    --accent-ring: rgba(16, 185, 129, 0.35);
+  }
+
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--bg-base);
+    color: #f4f4f5;
+    font-size: 12px;
+    line-height: 1.4;
+    transition: background-color 0.2s ease;
+  }
+}
+
+/* Thin discreet scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Sidebar scroll container: only vertical scroll, no horizontal bar ever */
+.sidebar-scroll-container {
+  overflow-y: auto;
+  overflow-x: hidden !important;
+}
+
+.sidebar-scroll-container::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+}
+
+.bg-app-base {
+  background-color: var(--bg-base);
+}
+
+.bg-app-surface {
+  background-color: var(--bg-surface);
+}
+
+.bg-app-card {
+  background-color: var(--bg-card);
+}
+
+.border-app {
+  border-color: var(--border-color);
+}
+
+/* Raycast / Linear clean button styles */
+.btn-primary {
+  background-color: #f4f4f5;
+  color: #09090b;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 6px 14px;
+  transition: all 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e4e4e7;
+  font-weight: 450;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Compact text field */
+.input-base {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 12px;
+  color: #f4f4f5;
+  transition: border-color 0.15s ease;
+}
+
+.input-base:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.input-base::placeholder {
+  color: #52525b;
+}
+
+.btn-accent {
+  background-color: #f4f4f5;
+  color: #09090b;
+  font-weight: 500;
+  transition: all 0.12s ease;
+}
+
+.btn-accent:hover:not(:disabled) {
+  background-color: #ffffff;
+}
+
+.text-accent {
+  color: var(--accent-text);
+}
+
+.border-accent {
+  border-color: var(--accent-border);
+}
+
+.bg-accent-subtle {
+  background-color: var(--accent-bg);
+}
+
+/* RGB Rainbow animation */
+@keyframes rainbowFlow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.rgb-active {
+  animation: rainbowFlow 4s linear infinite;
+}
+
+/* Smooth Tab Entrance */
+@keyframes tabSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-pane-active {
+  display: block;
+  height: 100%;
+  animation: tabSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Soft pulse highlight */
+@keyframes softGlow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+.animate-soft-glow {
+  animation: softGlow 2s ease-in-out infinite;
+}
