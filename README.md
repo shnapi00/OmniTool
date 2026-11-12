@@ -42,52 +42,57 @@ OmniTool.onMount((container) => {
     OmniTool.ui.toast('Done!');
   };
 });
+```
 
-Building from Source
-Prerequisites
-Node.js (v18+)
-Rust & Cargo
-Windows WebView2 & MSVC Build Tools
+## Building from Source
 
-Setup
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+)
+- [Rust & Cargo](https://rustup.rs/)
+- Windows WebView2 & MSVC Build Tools
 
-git clone [https://github.com/shnapi00/OmniTool.git](https://github.com/shnapi00/OmniTool.git)
+### Setup
+```bash
+git clone https://github.com/shnapi00/OmniTool.git
 cd OmniTool
 cp .env.example .env
 npm install
 npm run tauri dev
+```
 
 To build the production installer:
+```bash
 npm run tauri build
+```
 
-OmniTool (RU)
-Лёгкий модульный десктопный мультитул на базе Tauri (Rust + React/TypeScript). Объединяет работу с медиа, локальные нейросети и OCR, утилиты для Telegram, а также систему плагинов с полным контролем над интерфейсом и системным API.
+---
 
-Возможности
-Работа с медиа и аудио: конвертация видео и аудио, сжатие файлов и извлечение аудиодорожек на базе FFmpeg.
+<a name="omnitool-ru"></a>
+# OmniTool (RU)
 
-Нейросети и OCR: удаление фона на изображениях и оптическое распознавание текста.
+Лёгкий модульный десктопный мультитул на базе **Tauri (Rust + React/TypeScript)**. Объединяет работу с медиа, локальные нейросети и OCR, утилиты для Telegram, а также систему плагинов с полным контролем над интерфейсом и системным API.
 
-Инструменты для Telegram: скачивание стикерпаков и работа с медиафайлами.
+## Возможности
 
-Гибкая система плагинов:
+- **Работа с медиа и аудио:** конвертация видео и аудио, сжатие файлов и извлечение аудиодорожек на базе FFmpeg.
+- **Нейросети и OCR:** удаление фона на изображениях и оптическое распознавание текста.
+- **Инструменты для Telegram:** скачивание стикерпаков и работа с медиафайлами.
+- **Гибкая система плагинов:**
+  - **Визуальный конструктор:** быстрая сборка инструментов из готовых UI-элементов и Python-скриптов.
+  - **Режим Custom UI (Скриптовые плагины):** создание полностью кастомных интерфейсов (HTML/CSS/Canvas) с прямым доступом к `window.OmniTool` API (`invoke`, `exec`, `storage`, `ui.toast`).
+- **Автообновление:** встроенная проверка и установка новых версий через GitHub Releases.
 
-Визуальный конструктор: быстрая сборка инструментов из готовых UI-элементов и Python-скриптов.
+## Установка
 
-Режим Custom UI (Скриптовые плагины): создание полностью кастомных интерфейсов (HTML/CSS/Canvas) с прямым доступом к window.OmniTool API (invoke, exec, storage, ui.toast).
+1. Перейдите в раздел [Releases](https://github.com/shnapi00/OmniTool/releases).
+2. Скачайте актуальный файл `OmniTool_Setup.exe` из блока **Assets**.
+3. Запустите установщик.
 
-Автообновление: встроенная проверка и установка новых версий через GitHub Releases.
+## Пример Custom UI плагина
 
-Установка
+В режиме **Custom UI** плагин не ограничен стандартными компонентами и может рендерить любой интерфейс и вызывать системные команды:
 
-Перейдите в раздел Releases.
-
-Скачайте актуальный файл OmniTool_Setup.exe из блока Assets.
-
-Запустите установщик.
-
-Пример Custom UI плагина
-В режиме Custom UI плагин не ограничен стандартными компонентами и может рендерить любой интерфейс и вызывать системные команды:
+```javascript
 OmniTool.onMount((container) => {
   container.innerHTML = `
     <div style="padding: 16px; font-family: Consolas, monospace;">
@@ -103,19 +108,25 @@ OmniTool.onMount((container) => {
     OmniTool.ui.toast('Готово!');
   };
 });
+```
 
-Сборка из исходников
-Требования
-Node.js (v18+)
-Rust & Cargo
-Windows WebView2 и компоненты сборки C++ (MSVC)
+## Сборка из исходников
 
-Запуск и сборка
-git clone [https://github.com/shnapi00/OmniTool.git](https://github.com/shnapi00/OmniTool.git)
+### Требования
+- [Node.js](https://nodejs.org/) (v18+)
+- [Rust & Cargo](https://rustup.rs/)
+- Windows WebView2 и компоненты сборки C++ (MSVC)
+
+### Запуск и сборка
+```bash
+git clone https://github.com/shnapi00/OmniTool.git
 cd OmniTool
 cp .env.example .env
 npm install
 npm run tauri dev
+```
 
-Для сборки релизного .exe-установщика:
+Для сборки релизного `.exe`-установщика:
+```bash
 npm run tauri build
+```
