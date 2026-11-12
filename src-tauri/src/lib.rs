@@ -80,8 +80,10 @@ pub fn run() {
             tauri::async_runtime::spawn(async move {
                 if modules::updater::UPDATE_CHECK_ENABLED && !modules::updater::GITHUB_REPO_URL.trim().is_empty() {
                     tokio::time::sleep(std::time::Duration::from_secs(10)).await;
-                    if modules::updater::is_staged_update_ready() {
-                        let _ = handle.emit("update-staged-ready", modules::updater::get_staged_update());
+                    if let Ok(status) = modules::updater::check_app_updates().await {
+                        if status.has_update && status.is_staged {
+                            let _ = handle.emit("update-staged-ready", modules::updater::get_staged_update());
+                        }
                     }
                 }
             });
